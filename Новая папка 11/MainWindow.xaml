@@ -1,0 +1,165 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Личный кабинет" Height="500" Width="700">
+
+
+    <Grid Background="LightGray">
+
+        <!-- Авторизация -->
+        <StackPanel x:Name="loginPanel"
+                    Width="250"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <TextBlock Text="Авторизация"
+                       FontSize="25"
+                       HorizontalAlignment="Center"/>
+
+            <TextBox x:Name="loginBox"
+                     Margin="5"
+                     Height="30"/>
+
+            <PasswordBox x:Name="passBox"
+                         Margin="5"
+                         Height="30"/>
+
+            <Button Content="Войти"
+                    Height="35"
+                    Click="Login_Click"/>
+
+        </StackPanel>
+
+
+
+        <!-- Личный кабинет -->
+
+        <Grid x:Name="cabinetPanel"
+              Visibility="Hidden">
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <!-- меню -->
+
+            <StackPanel Background="White">
+
+                <Button Content="Профиль"
+                        Click="Profile_Click"/>
+
+                <Button Content="Настройки"
+                        Click="Settings_Click"/>
+
+                <Button Content="Заказы"
+                        Click="Orders_Click"/>
+
+            </StackPanel>
+
+
+
+            <!-- страницы -->
+
+            <Grid Grid.Column="1">
+
+
+                <!-- профиль -->
+
+                <StackPanel x:Name="profilePanel"
+                            Margin="20">
+
+
+                    <TextBlock Text="Профиль"
+                               FontSize="25"/>
+
+
+                    <Ellipse Width="100"
+                             Height="100"
+                             Fill="Gray"/>
+
+
+                    <TextBlock x:Name="fio"
+                               Text="ФИО: Иван Иванов"
+                               FontSize="18"/>
+
+
+                    <TextBlock x:Name="phone"
+                               Text="Телефон: +7 999 000 00 00"
+                               FontSize="18"/>
+
+
+                    <TextBlock x:Name="email"
+                               Text="Email: mail@mail.ru"
+                               FontSize="18"/>
+
+                </StackPanel>
+
+
+
+
+                <!-- настройки -->
+
+                <StackPanel x:Name="settingsPanel"
+                            Visibility="Hidden"
+                            Margin="20">
+
+
+                    <TextBlock Text="Редактирование"
+                               FontSize="25"/>
+
+
+                    <TextBox x:Name="newFio"
+                             Text="Иван Иванов"/>
+
+                    <TextBox x:Name="newPhone"
+                             Text="+7 999 000 00 00"/>
+
+                    <TextBox x:Name="newEmail"
+                             Text="mail@mail.ru"/>
+
+
+                    <Button Content="Сохранить"
+                            Click="Save_Click"/>
+
+                </StackPanel>
+
+
+
+
+
+                <!-- заказы -->
+
+                <StackPanel x:Name="ordersPanel"
+                            Visibility="Hidden"
+                            Margin="20">
+
+
+                    <TextBlock Text="Ваши заказы"
+                               FontSize="25"/>
+
+                    <ListBox>
+
+                        <ListBoxItem>
+                            Заказ №1 - Телефон
+                        </ListBoxItem>
+
+                        <ListBoxItem>
+                            Заказ №2 - Ноутбук
+                        </ListBoxItem>
+
+                    </ListBox>
+
+
+                </StackPanel>
+
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
